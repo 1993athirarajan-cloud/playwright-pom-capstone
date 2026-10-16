@@ -1,0 +1,14 @@
+[
+    {
+        "productName":"Anvil L/S Crew Neck - Grey",
+        "size": "XL",
+        "quantity": 1,
+        "expectedPrice": "$22.15"
+    },
+    {
+       "productName":"Anvil L/S Crew Neck - Grey",
+        "size": "L",
+        "quantity": 1 ,
+         "expectedPrice": "$22.15"
+    }
+]
