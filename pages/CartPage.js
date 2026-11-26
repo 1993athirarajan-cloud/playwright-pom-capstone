@@ -11,6 +11,7 @@ class CartPage {
         
         // Fix: Target the checkout box or use toContainText instead of toHaveText on a loose text selector
         this.totalPrice = this.checkoutBox; 
+        this.checkoutButton = this.cart.locator('a[href="/checkout"]');
     }
 
     async verifyCartDetails(expectedProduct, expectedPrice) {
@@ -18,9 +19,15 @@ class CartPage {
         await expect(this.cartProduct).toContainText(expectedProduct);
         await expect(this.quantity).toHaveValue('1');
         await expect(this.totalLabel).toBeVisible();
+        await expect(this.totalPrice).toContainText(expectedPrice);
+        }
+        async openCheckout() {
+            await this.checkoutButton.click();
+            await expect(this.page).toHaveURL(/\/checkout$/);
+        
         
         // Use toContainText so it successfully checks for the price inside the container block
-        await expect(this.totalPrice).toContainText(expectedPrice);
+        //await expect(this.totalPrice).toContainText(expectedPrice);
     }
 }
 

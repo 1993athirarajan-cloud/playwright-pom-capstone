@@ -26,6 +26,9 @@ test(`@smoke Add product with size ${data.size}`, async ({ page }) => {
         data.productName,
         data.expectedPrice
     );
+    await cartPage.openCheckout()
+     await expect(page).toHaveURL(/\/checkout$/);
+    
 
 });
 }

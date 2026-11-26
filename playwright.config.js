@@ -8,10 +8,15 @@ module.exports = defineConfig({
         baseURL: process.env.BASE_URL,
         headless: false,
         screenshot: 'on',
-        trace: 'on-first-retry'
+        video:'retain-on-failure',
+        trace: 'retain on failure'
     },
 
-    reporter: 'html',
+    reporter: [
+  ['list'],
+  ['html', { outputFolder: 'playwright-report', open: 'never' }],
+  ['allure-playwright', { resultsDir: 'allure-results' }]
+],
 
     projects: [
         {
